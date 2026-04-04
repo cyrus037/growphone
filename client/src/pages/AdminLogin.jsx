@@ -144,7 +144,7 @@ export default function AdminLogin() {
           </button>
         </form>
         <p style={{ fontSize: '0.72rem', color: 'var(--text3)', marginTop: '1rem', textAlign: 'center' }}>
-          Default after seed: admin@growphone.in / admin123 (change in production).
+          Welcome To GrowPhone.
         </p>
       </div>
     </div>
