@@ -6,8 +6,8 @@ import { useAuth } from '../context/AuthContext';
 export default function AdminLogin() {
   const navigate = useNavigate();
   const { login } = useAuth();
-  const [email, setEmail] = useState('admin@growphone.in');
-  const [password, setPassword] = useState('admin123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [adminKey, setAdminKey] = useState('');
   const [recoveryKey, setRecoveryKey] = useState('');
   const [err, setErr] = useState('');
