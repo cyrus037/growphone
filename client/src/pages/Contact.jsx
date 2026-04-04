@@ -70,7 +70,7 @@ export default function Contact() {
           </div>
           <div className="contact-detail">
             <div className="icon">📧</div>
-            <span>hello@growphone.in</span>
+            <span>info@growphone.in</span>
           </div>
           <div className="contact-detail">
             <div className="icon">📍</div>
