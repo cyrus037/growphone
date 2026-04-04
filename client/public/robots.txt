@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://growphone.in/sitemap.xml
+
+# Block admin portal from search engines
+User-agent: *
+Disallow: /admin-portal
