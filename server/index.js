@@ -18,7 +18,12 @@ const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
 const CLIENT_URL = process.env.CLIENT_URL || 'https://growphone.in,https://www.growphone.in,http://localhost:5173,http://127.0.0.1:5173';
 /** Dev: browser may use localhost or 127.0.0.1 — both must be allowed */
-const DEFAULT_DEV_ORIGINS = ['https://growphone.in,https://www.growphone.in'];
+const DEFAULT_DEV_ORIGINS = [
+  'https://growphone.in',
+  'https://www.growphone.in',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173'
+];
 
 // 🔴 Force error if DB URI missing (no silent fallback)
 if (!MONGODB_URI) {
