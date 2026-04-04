@@ -1,6 +1,6 @@
 import { getClickSessionId } from './utils/clickSession';
 
-const BASE = import.meta.env.VITE_API_URL || "";
+const BASE = import.meta.env.VITE_API_URL || "https://growphone.onrender.com";
 
 /** Must match the admin route in App.jsx (not linked from the public nav). */
 export const ADMIN_PORTAL_PATH = "/admin-portal";
