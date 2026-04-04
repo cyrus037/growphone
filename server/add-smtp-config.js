@@ -8,7 +8,7 @@ const smtpConfig = `
 # In Zoho: Mail → Settings → Mail Accounts → IMAP / SMTP — copy the SMTP host shown for your region.
 # Common: smtp.zoho.com (port 587 TLS) or port 465 SSL. India-hosted accounts may use smtp.zoho.in — check Zoho.
 # Use the mailbox password, or an App Password if Zoho requires 2FA.
-SMTP_HOST=smtp.zoho.com
+SMTP_HOST=smtp.zoho.in
 SMTP_PORT=587
 SMTP_SECURE=false
 SMTP_USER=info@growphone.in
