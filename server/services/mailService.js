@@ -85,22 +85,124 @@ async function sendContactEmails(lead) {
 
   // Send admin email using Resend template
   try {
-    await resend.emails.send({
-      from: `"Growphone" <${from}>`,
-      to: adminNotify,
-      subject: 'New Lead Received',
-      template: {
-        id: '56fd67a3-d5ad-4a22-bd22-d9d5345baf49',
-        data: {
-          name: vars.name,
-          email: vars.email,
-          businessType: vars.businessType,
-          phone: vars.phone,
-          budget: vars.budget,
-          submittedAt: vars.submittedAt
-        }
-      }
-    });
+    const adminHtml = `
+<!DOCTYPE html>
+<html>
+<body style="margin:0;padding:0;background:#f4f6fb;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6fb;padding:20px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:10px;overflow:hidden;">
+          
+          <tr>
+            <td style="padding:25px 30px;font-size:18px;font-weight:bold;">
+              GrowPhone
+              <span style="float:right;font-size:12px;color:#888;">
+                ${vars.submittedAt}
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:20px 30px;">
+              <span style="background:#22c55e;color:white;font-size:12px;padding:6px 10px;border-radius:20px;">
+                ⚡ NEW LEAD
+              </span>
+              <h1 style="margin:15px 0 5px;font-size:26px;">
+                New Lead Received
+              </h1>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:20px 30px;">
+              <table width="100%" style="background:#f9fafc;border-radius:10px;padding:20px;">
+                
+                <tr>
+                  <td style="padding:10px;">
+                    <div style="font-size:11px;color:#888;">FULL NAME</div>
+                    <div style="font-size:16px;font-weight:bold;">
+                      ${vars.name}
+                    </div>
+                  </td>
+
+                  <td style="padding:10px;">
+                    <div style="font-size:11px;color:#888;">BUSINESS TYPE</div>
+                    <div style="background:#e5e7eb;padding:6px 12px;border-radius:20px;font-size:13px;display:inline-block;">
+                      ${vars.businessType}
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:10px;">
+                    <div style="font-size:11px;color:#888;">EMAIL</div>
+                    <div style="color:#2563eb;">
+                      ${vars.email}
+                    </div>
+                  </td>
+
+                  <td style="padding:10px;">
+                    <div style="font-size:11px;color:#888;">BUDGET</div>
+                    <div style="font-weight:bold;">
+                      ${vars.budget}
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:10px;">
+                    <div style="font-size:11px;color:#888;">PHONE</div>
+                    <div>
+                      ${vars.phone}
+                    </div>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding:20px;">
+              <a href="https://growphone.in/admin-portal"
+                 style="background:#2563eb;color:white;padding:12px 25px;border-radius:30px;text-decoration:none;font-size:14px;">
+                View Full Lead →
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding:10px;font-size:12px;color:#888;">
+              Contact this lead ASAP via WhatsApp 🚀
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding:20px;background:#111827;color:#9ca3af;font-size:12px;">
+              GrowPhone System<br><br>
+              <a href="https://growphone.in" style="color:#9ca3af;text-decoration:none;">
+                Website
+              </a>
+              <br><br>
+              © 2026 GrowPhone.in
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+`;
+
+await resend.emails.send({
+  from: `"Growphone" <${from}>`,
+  to: adminNotify,
+  subject: '🔥 New Lead Received',
+  html: adminHtml,
+});
     results.push('admin');
     console.log('[mail] Admin email sent successfully to:', adminNotify);
   } catch (emailError) {
