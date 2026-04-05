@@ -64,14 +64,16 @@ async function sendContactEmails(lead) {
         from: `"Growphone" <${from}>`,
         to: lead.email,
         subject: 'Thank you for contacting Growphone!',
-        template: 'inquiry-received',
-        variables: {
-          name: vars.name,
-          email: vars.email,
-          businessType: vars.businessType,
-          phone: vars.phone,
-          budget: vars.budget,
-          submittedAt: vars.submittedAt
+        template: {
+          id: 'ef7400f8-c4eb-4a47-9ff7-a86fef453f6f',
+          data: {
+            name: vars.name,
+            email: vars.email,
+            businessType: vars.businessType,
+            phone: vars.phone,
+            budget: vars.budget,
+            submittedAt: vars.submittedAt
+          }
         }
       });
       results.push('user');
@@ -87,14 +89,16 @@ async function sendContactEmails(lead) {
       from: `"Growphone" <${from}>`,
       to: adminNotify,
       subject: 'New Lead Received',
-      template: 'new-lead',
-      variables: {
-        name: vars.name,
-        email: vars.email,
-        businessType: vars.businessType,
-        phone: vars.phone,
-        budget: vars.budget,
-        submittedAt: vars.submittedAt
+      template: {
+        id: '56fd67a3-d5ad-4a22-bd22-d9d5345baf49',
+        data: {
+          name: vars.name,
+          email: vars.email,
+          businessType: vars.businessType,
+          phone: vars.phone,
+          budget: vars.budget,
+          submittedAt: vars.submittedAt
+        }
       }
     });
     results.push('admin');
