@@ -1,0 +1,16 @@
+# Resend Email Configuration
+RESEND_API_KEY=your_resend_api_key_here
+MAIL_FROM=info@growphone.in
+ADMIN_NOTIFICATION_EMAIL=growphonedigital@gmail.com
+
+# Database (keep existing)
+MONGODB_URI=mongodb://localhost:27017/growphone
+
+# JWT (keep existing)
+JWT_SECRET=your_jwt_secret_here
+
+# CORS (keep existing)
+CLIENT_URL=http://localhost:3000
+
+# Optional
+ADMIN_RECOVERY_KEY=emergency-recovery-key-2026
