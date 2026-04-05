@@ -60,22 +60,88 @@ async function sendContactEmails(lead) {
   // Send user email using Resend template
   if (lead.email) {
     try {
-      await resend.emails.send({
-        from: `"Growphone" <${from}>`,
-        to: lead.email,
-        subject: 'Thank you for contacting Growphone!',
-        template: {
-          id: 'ef7400f8-c4eb-4a47-9ff7-a86fef453f6f',
-          data: {
-            name: vars.name,
-            email: vars.email,
-            businessType: vars.businessType,
-            phone: vars.phone,
-            budget: vars.budget,
-            submittedAt: vars.submittedAt
-          }
-        }
-      });
+      const userHtml = `
+<!DOCTYPE html>
+<html>
+<body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,sans-serif;">
+
+  <div style="display:none;visibility:hidden;opacity:0;height:0;width:0;">
+    Hi ${vars.name}, we've received your inquiry and will contact you shortly.
+  </div>
+
+  <div style="width:100%;padding:20px 0;background:#f4f6f8;">
+    <div style="max-width:600px;margin:auto;background:#ffffff;border-radius:10px;overflow:hidden;">
+
+      <div style="background:linear-gradient(135deg,#2563eb,#1e40af);color:#ffffff;padding:30px;">
+        <div style="display:inline-block;background:#22c55e;padding:5px 12px;font-size:12px;border-radius:20px;margin-bottom:10px;">
+          Inquiry Received
+        </div>
+
+        <h1 style="margin:10px 0;font-size:22px;">
+          We've Received Your Inquiry
+        </h1>
+
+        <p style="font-size:14px;opacity:0.9;">
+          Hello ${vars.name}, thank you for reaching out. Our team will contact you shortly.
+        </p>
+      </div>
+
+      <div style="padding:20px 30px;">
+        <h3>Submission Summary</h3>
+
+        <div style="background:#f9fafb;border-radius:8px;padding:15px;margin-bottom:15px;">
+          <div style="font-size:12px;color:#6b7280;">Full Name</div>
+          <div style="font-weight:bold;margin-bottom:10px;">${vars.name}</div>
+
+          <div style="font-size:12px;color:#6b7280;">Email</div>
+          <div style="font-weight:bold;margin-bottom:10px;">${vars.email}</div>
+
+          <div style="font-size:12px;color:#6b7280;">Phone</div>
+          <div style="font-weight:bold;">${vars.phone}</div>
+        </div>
+
+        <div style="background:#f9fafb;border-radius:8px;padding:15px;">
+          <div style="font-size:12px;color:#6b7280;">Business Type</div>
+          <div style="font-weight:bold;margin-bottom:10px;">${vars.businessType}</div>
+
+          <div style="font-size:12px;color:#6b7280;">Budget</div>
+          <div style="font-weight:bold;">${vars.budget}</div>
+        </div>
+      </div>
+
+      <div style="padding:20px 30px;">
+        <div style="background:#f9fafb;border-radius:8px;padding:15px;">
+          <strong>Want faster response?</strong>
+          <p style="font-size:13px;">
+            Chat instantly on WhatsApp.
+          </p>
+
+          <div style="text-align:center;margin-top:15px;">
+            <a href="https://wa.me/916352010575?text=Hi%20GrowPhone%2C%20this%20is%20${encodeURIComponent(vars.name)}"
+              style="display:inline-block;background:#2563eb;color:#ffffff;padding:12px 20px;border-radius:6px;text-decoration:none;">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#111827;color:#9ca3af;text-align:center;padding:15px;font-size:12px;">
+        GrowPhone © 2026
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
+`;
+
+await resend.emails.send({
+  from: `"Growphone" <${from}>`,
+  to: lead.email,
+  subject: 'Thank you for contacting Growphone!',
+  html: userHtml,
+});
       results.push('user');
       console.log('[mail] User email sent successfully to:', lead.email);
     } catch (emailError) {
