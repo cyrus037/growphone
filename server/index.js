@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const leadsRoutes = require('./routes/leads');
 const blogsRoutes = require('./routes/blogs');
-const pricingRoutes = require('./routes/pricing');
+const { isMailConfigured } = require('./services/mailService');
 const settingsRoutes = require('./routes/settings');
 const dashboardRoutes = require('./routes/dashboard');
 const adminUsersRoutes = require('./routes/adminUsers');
@@ -89,7 +89,11 @@ mongoose
     app.listen(PORT, () => {
       console.log(`🚀 API running on http://localhost:${PORT}`);
       console.log('🔑 Admin API routes use JWT — login at POST /api/auth/login');
-      console.log('📧 Email functionality enabled');
+      if (isMailConfigured()) {
+        console.log('📧 Resend email functionality enabled');
+      } else {
+        console.log('⚠️  Email functionality disabled - RESEND_API_KEY not configured');
+      }
     });
   })
   .catch((e) => {
@@ -98,7 +102,11 @@ mongoose
     // Start server anyway for development
     app.listen(PORT, () => {
       console.log(`🚀 Dev API running on http://localhost:${PORT}`);
-      console.log('📧 Email functionality enabled');
+      if (isMailConfigured()) {
+        console.log('📧 Resend email functionality enabled');
+      } else {
+        console.log('⚠️  Email functionality disabled - RESEND_API_KEY not configured');
+      }
       console.log('⚠️  MongoDB disabled - some features may not work');
     });
   });
