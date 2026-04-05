@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const leadsRoutes = require('./routes/leads');
 const blogsRoutes = require('./routes/blogs');
+const pricingRoutes = require('./routes/pricing');
 const { isMailConfigured } = require('./services/mailService');
 const settingsRoutes = require('./routes/settings');
 const dashboardRoutes = require('./routes/dashboard');
