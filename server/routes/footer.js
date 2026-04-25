@@ -41,6 +41,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET /api/footer/links - Public endpoint for footer links
+router.get('/links', async (req, res) => {
+  try {
+    // Set proper headers for JSON response
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    const links = await FooterLinks.find({}).sort({ order_index: 1 });
+    res.json(links);
+  } catch (error) {
+    console.error('Error fetching footer links:', error);
+    res.status(500).json({ message: 'Failed to fetch footer links' });
+  }
+});
+
 // PUT /api/footer/settings - Update footer settings (admin only)
 router.put('/settings', adminAuth, async (req, res) => {
   try {

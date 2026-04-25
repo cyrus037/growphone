@@ -1,0 +1,24 @@
+# Production Environment Variables Template
+# Copy this to Render dashboard environment variables
+
+# Required
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/growphone
+
+# JWT Secret (generate a new strong one for production)
+JWT_SECRET=your-super-secure-jwt-secret-for-production-256-bits
+
+# CORS - Production URLs only
+CLIENT_URL=https://growphone.in,https://www.growphone.in
+
+# SMTP Configuration (Zoho)
+SMTP_HOST=smtp.zoho.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=info@growphone.in
+SMTP_PASS=your_actual_zoho_password
+MAIL_FROM=info@growphone.in
+ADMIN_NOTIFICATION_EMAIL=growphonedigital@gmail.com
+
+# Optional
+ADMIN_RECOVERY_KEY=emergency-recovery-key-2026
+ADMIN_EMAIL=admin@growphone.in

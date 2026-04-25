@@ -1,0 +1,27 @@
+{
+  "name": "Growphone - India's #1 Social Growth Agency",
+  "short_name": "Growphone",
+  "description": "Stop posting into the void. Start dominating your niche. Scale your social revenue with expert social media management.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "marketing", "social media"],
+  "lang": "en-IN",
+  "scope": "/",
+  "dir": "ltr"
+}
