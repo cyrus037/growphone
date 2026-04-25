@@ -14,9 +14,6 @@ const dashboardRoutes = require('./routes/dashboard');
 const adminUsersRoutes = require('./routes/adminUsers');
 const emailTemplatesRoutes = require('./routes/emailTemplates');
 const analyticsRoutes = require('./routes/analytics');
-const footerRoutes = require('./routes/footer');
-const servicesRoutes = require('./routes/services');
-const sitemapRoutes = require('./routes/sitemap');
 
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -78,9 +75,6 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/admin/users', adminUsersRoutes);
 app.use('/api/email/templates', emailTemplatesRoutes);
 app.use('/api/analytics', analyticsRoutes);
-app.use('/api/footer', footerRoutes);
-app.use('/api/services', servicesRoutes);
-app.use('/', sitemapRoutes);
 
 // Error handler
 app.use((err, req, res, next) => {
