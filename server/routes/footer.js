@@ -89,17 +89,6 @@ router.put('/settings', adminAuth, async (req, res) => {
   }
 });
 
-// GET /api/footer/links - Get all footer links (admin)
-router.get('/links', adminAuth, async (req, res) => {
-  try {
-    const links = await FooterLinks.find().sort({ title: 1, order_index: 1 });
-    res.json(links);
-  } catch (error) {
-    console.error('Error fetching footer links:', error);
-    res.status(500).json({ message: 'Failed to fetch footer links' });
-  }
-});
-
 // POST /api/footer/links - Create new footer link (admin only)
 router.post('/links', adminAuth, async (req, res) => {
   try {
