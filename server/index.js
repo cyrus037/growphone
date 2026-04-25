@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const authRoutes = require('./routes/auth');
 const leadsRoutes = require('./routes/leads');
@@ -61,6 +62,9 @@ app.use(
 );
 
 app.use(express.json({ limit: '1mb' }));
+
+// Serve static files (favicon, etc.)
+app.use(express.static(path.join(__dirname, '../client/public')));
 
 // Health check
 app.get('/api/health', (req, res) => {
