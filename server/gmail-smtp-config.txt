@@ -1,0 +1,8 @@
+# --- Alternative: Gmail SMTP (temporary fix) ---
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your_gmail@gmail.com
+SMTP_PASS=your_gmail_app_password
+MAIL_FROM=your_gmail@gmail.com
+ADMIN_NOTIFICATION_EMAIL=growphonedigital@gmail.com
