@@ -1,8 +1,0 @@
-# --- Try India Zoho SMTP ---
-SMTP_HOST=smtp.zoho.in
-SMTP_PORT=587
-SMTP_SECURE=false
-SMTP_USER=info@growphone.in
-SMTP_PASS=your_updated_password
-MAIL_FROM=info@growphone.in
-ADMIN_NOTIFICATION_EMAIL=growphonedigital@gmail.com
