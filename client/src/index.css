@@ -245,7 +245,8 @@ nav.site-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.85);ba
 .nav-dropdown-toggle{display:flex;align-items:center;gap:0.25rem;cursor:pointer}
 .nav-dropdown-arrow{font-size:0.7rem;transition:transform 0.2s}
 .nav-dropdown-toggle--open .nav-dropdown-arrow{transform:rotate(180deg)}
-.nav-dropdown-menu{position:absolute;top:100%;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);min-width:280px;z-index:1000;padding:0.5rem 0;margin-top:0.5rem}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 2px);left:0;background:var(--bg2);border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);min-width:280px;z-index:1000;padding:0.5rem 0;margin-top:0}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:0;right:0;height:6px;background:transparent}
 .nav-dropdown-item{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;color:var(--text2);text-decoration:none;transition:all 0.2s;border:none;background:none;width:100%;text-align:left;cursor:pointer}
 .nav-dropdown-item:hover{background:var(--bg3);color:var(--text)}
 .nav-dropdown-icon{font-size:1.2rem;width:24px;text-align:center}
