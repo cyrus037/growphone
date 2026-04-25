@@ -121,7 +121,6 @@ serviceSchema.virtual('url').get(function() {
 
 // Ensure text search indexes
 serviceSchema.index({ title: 'text', description: 'text', content: 'text' });
-serviceSchema.index({ slug: 1 });
 serviceSchema.index({ isActive: 1, orderIndex: 1 });
 
 module.exports = mongoose.model('Service', serviceSchema);
